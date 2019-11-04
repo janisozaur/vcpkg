@@ -27,7 +27,7 @@ index a35f1c5..a78dcf5 100644
 +   : asm/make_arm64_aapcs_pe_armasm64.asm
 +     asm/jump_arm64_aapcs_pe_armasm64.asm
 +     asm/ontop_arm64_aapcs_pe_armasm64.asm
-+     untested.cpp
++     dummy.cpp
 +   : <abi>ms
 +     <address-model>64
 +     <architecture>arm
