@@ -14,7 +14,9 @@ vcpkg_from_github(
 # Already merged upstream
 vcpkg_apply_patches(
     SOURCE_PATH ${SOURCE_PATH}
-    PATCHES "${CMAKE_CURRENT_LIST_DIR}/0001-Fix-compilation-with-MSVC-for-ARM.patch"
+    PATCHES
+        "${CMAKE_CURRENT_LIST_DIR}/0001-Fix-compilation-with-MSVC-for-ARM.patch"
+        "${CMAKE_CURRENT_LIST_DIR}/0002-Add-support-for-MSVC-ARM64.patch"
 )
 
 file(READ "${SOURCE_PATH}/build/Jamfile.v2" _contents)
