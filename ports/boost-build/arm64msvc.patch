@@ -37,7 +37,7 @@ index e6c0b60..62c3a41 100644
 +    #
 +    actions compile.asm
 +    {
-+        $(.SETUP) $(.ASM) $(ASMFLAGS) $(USER_ASMFLAGS) -o "$(<:W)" "$(>:W)"
++        $(.SETUP) $(.ASM) $(USER_ASMFLAGS) -o "$(<:W)" "$(>:W)"
 +    }
  }
  
