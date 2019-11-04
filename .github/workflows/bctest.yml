@@ -1,0 +1,22 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: bootstrap vcpkg
+      run: bootstrap-vcpkg.bat
+    - name: list dir
+      run: ls
+    - name: install boost-build
+      run: vcpkg.exe install boost-build
+    - name: install boost-context
+      run: vcpkg.exe install boost-context:arm64-windows
+    - name: show errors
+      run: type C:\projects\vcpkg\buildtrees\boost-context\build-arm64-windows-rel-out.log
+
