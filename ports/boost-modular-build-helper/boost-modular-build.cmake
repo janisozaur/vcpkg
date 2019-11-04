@@ -284,6 +284,7 @@ function(boost_modular_build)
                 ${_bm_OPTIONS_REL}
                 variant=release
                 debug-symbols=on
+                -d 11
             WORKING_DIRECTORY ${_bm_SOURCE_PATH}/build
             LOGNAME build-${TARGET_TRIPLET}-rel
         )
@@ -301,6 +302,7 @@ function(boost_modular_build)
                 ${_bm_OPTIONS}
                 ${_bm_OPTIONS_DBG}
                 variant=debug
+                -d 11
             WORKING_DIRECTORY ${_bm_SOURCE_PATH}/build
             LOGNAME build-${TARGET_TRIPLET}-dbg
         )
