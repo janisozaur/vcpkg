@@ -9,20 +9,24 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: show git head
+      run: git --no-pager show HEAD
     - name: bootstrap vcpkg
       run: bootstrap-vcpkg.bat
     - name: list dir
       run: ls
+    - name: show git head
+      run: git --no-pager show HEAD
     - name: install boost-build
       run: vcpkg.exe install boost-build
     - name: install boost-context
       run: vcpkg.exe install boost-context:arm64-windows
     - name: show errors
       if: failure()
-      run: type C:\projects\vcpkg\buildtrees\boost-context\build-arm64-windows-rel-out.log
+      run: type D:\a\vcpkg\vcpkg\buildtrees\boost-context\build-arm64-windows-rel-out.log
     - uses: actions/upload-artifact@master
       with:
         name: boost-context-buildtree
-        path: C:\projects\vcpkg\buildtrees\boost-context
+        path: D:\a\vcpkg\vcpkg\buildtrees\boost-context\
       if: always()
 
