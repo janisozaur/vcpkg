@@ -10,6 +10,41 @@ index e6c0b60..62c3a41 100644
  
          # Make sure that manifest will be generated even if there is no
          # dependencies to put there.
+@@ -534,18 +534,25 @@ rule compile.asm ( targets + : sources * : properties * )
+     set-setup-command $(targets) : $(properties) ;
+ }
+ 
+-# For the assembler the following options are turned on by default:
+-#
+-#   -Zp4   align structures to 4 bytes
+-#   -Cp    preserve case of user identifiers
+-#   -Cx    preserve case in publics, externs
+-#
+-actions compile.asm
++if [ $(property-set).get <architecture> ] = arm
+ {
+-    $(.SETUP) $(.ASM) -c -Zp4 -Cp -Cx -D$(DEFINES) $(ASMFLAGS) $(USER_ASMFLAGS) -Fo "$(<:W)" "$(>:W)"
++    actions compile.asm
++    {
++        $(.SETUP) $(.ASM) $(ASMFLAGS) $(USER_ASMFLAGS) -o "$(<:W)" "$(>:W)"
++    }
++} else {
++    # For the assembler the following options are turned on by default:
++    #
++    #   -Zp4   align structures to 4 bytes
++    #   -Cp    preserve case of user identifiers
++    #   -Cx    preserve case in publics, externs
++    #
++    actions compile.asm
++    {
++        $(.SETUP) $(.ASM) -c -Zp4 -Cp -Cx -D$(DEFINES) $(ASMFLAGS) $(USER_ASMFLAGS) -Fo "$(<:W)" "$(>:W)"
++    }
+ }
+ 
+-
+ rule compile.c ( targets + : sources * : properties * )
+ {
+     set-setup-command $(targets) : $(properties) ;
 @@ -1256,7 +1257,7 @@ local rule configure-really ( version ? : options * )
          local below-8.0 = [ MATCH "^([67]\\.)" : $(version) ] ;
          local below-11.0 = [ MATCH "^([6789]\\.|10\\.)" : $(version) ] ;
