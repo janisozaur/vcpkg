@@ -23,6 +23,9 @@ jobs:
       run: vcpkg.exe install boost-context:arm64-windows
     - name: show errors
       if: failure()
+      run: type D:\a\vcpkg\vcpkg\buildtrees\boost-system\build-arm64-windows-rel-out.log
+    - name: show errors
+      if: failure()
       run: type D:\a\vcpkg\vcpkg\buildtrees\boost-context\build-arm64-windows-rel-out.log
     - uses: actions/upload-artifact@master
       with:
