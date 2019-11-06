@@ -2,7 +2,7 @@ diff --git a/build/Jamfile.v2 b/build/Jamfile.v2
 index 872b4f0..ac4df36 100644
 --- a/build/Jamfile.v2
 +++ b/build/Jamfile.v2
-@@ -176,6 +176,20 @@ alias asm_sources
+@@ -176,6 +176,19 @@ alias asm_sources
       <toolset>msvc
     ;
  
@@ -12,7 +12,6 @@ index 872b4f0..ac4df36 100644
 +   : asm/make_arm64_aapcs_pe_armasm64.asm
 +     asm/jump_arm64_aapcs_pe_armasm64.asm
 +     asm/ontop_arm64_aapcs_pe_armasm64.asm
-+     dummy.cpp
 +   : <abi>ms
 +     <address-model>64
 +     <architecture>arm
