@@ -3,6 +3,8 @@ build_script:
     - bootstrap-vcpkg.bat
     - .\vcpkg install boost-build
     - .\vcpkg install boost-context:arm64-windows
+    - .\vcpkg install boost-context:x86-windows
+    - .\vcpkg install boost-context:x64-windows
 on_failure:
     - type C:\projects\vcpkg\buildtrees\boost-system\build-arm64-windows-rel-out.log
     - type C:\projects\vcpkg\buildtrees\boost-context\build-arm64-windows-rel-out.log

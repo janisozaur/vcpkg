@@ -24,6 +24,10 @@ jobs:
     - name: show errors
       if: failure()
       run: type D:\a\vcpkg\vcpkg\buildtrees\boost-system\build-arm64-windows-rel-out.log
+    - name: install boost-context:x86-windows
+      run: vcpkg.exe install boost-context:x86-windows
+    - name: install boost-context:x64-windows
+      run: vcpkg.exe install boost-context:x64-windows
     - name: show errors
       if: failure()
       run: type D:\a\vcpkg\vcpkg\buildtrees\boost-context\build-arm64-windows-rel-out.log
