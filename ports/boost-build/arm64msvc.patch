@@ -74,7 +74,7 @@ index dda22b4c5..f58b2c350 100644
 +        #   -Cp    preserve case of user identifiers
 +        #   -Cx    preserve case in publics, externs
 +        #
-+        local assembler-flags-amd64 = -c -Zp4 -Cp -Cx -D$(DEFINES) $(ASMFLAGS);
++        local assembler-flags-amd64 = -c -Zp4 -Cp -Cx -D$(DEFINES) $(ASMFLAGS) ;
 +        local assembler-flags-i386  = -c -Zp4 -Cp -Cx -D$(DEFINES) $(ASMFLAGS) ;
 +        local assembler-flags-ia64  = -c -Zp4 -Cp -Cx -D$(DEFINES) $(ASMFLAGS) ;
 +        local assembler-flags-arm   = "" ;
